@@ -33,7 +33,7 @@ You're reading it!
 
 #### 1. Explain how (and identify where in your code) you extracted HOG features from the training images.
 
-The code for extracting the HOG features (as well as the color and spatial features) is in second and third code cells of the vehicle-detection.ipynb notebook. The actual code for computing the HOG for each image is in the function `get_hog_features` in `lesson_functions.py`).  
+The code for extracting the HOG featues (as well as the color and spatial features) is in second and thrid code cells of the vehicle-detection.ipynb notebook. The actual code for computing the HOG for each image isin the function `get_hog_features` in `lesson_functions.py`).  
 
 I started by reading in all the `vehicle` and `non-vehicle` images.  Here is an example of one of each of the `vehicle` and `non-vehicle` classes:
 
@@ -43,7 +43,7 @@ I then explored different color spaces and different `skimage.hog()` parameters 
 
 Here is an example using the `HLS` color space and HOG parameters of `orientations=9`, `pixels_per_cell=(8, 8)` and `cells_per_block=(2, 2)`:
 
-![alt text][iamge2]
+![alt text][image2]
 
 #### 2. Explain how you settled on your final choice of HOG parameters.
 
@@ -51,7 +51,7 @@ I tried various combinations of parameters and found that the defaults actually 
 
 #### 3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
 
-I trained a linear SVM in the sixth code cell of the notebook. I trained it using the first 80% of all the training data sets, the remaining 20% I used as a validation set. I used this method because many of the training examples in the data set are of the same image, just at slightly different times and slightly different lighting. Originally, I was simply randomly shuffling and splitting the training and test data into two group. This meant that my test data very closely matched my training data and was leading to over-fitting. 
+I trained a linear SVM in the sixth code cell of the notebook. I trained it using the first 80% of all the training data sets, the remaining 20% I used as a validation set. I used this method because many of the training examples in the data set are of the same image, just at slightly different times and slightly different lighting. Originally, I was simply randomly shuffling and splitting the training and test data into two group. This meant that my test data very closely matched my training data and was leading to overfitting. 
 
 ### Sliding Window Search
 
@@ -61,7 +61,7 @@ The code for the sliding window approach is in the seventh code cell. I used fou
 
 ![alt text][image3]
 
-####2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
+#### 2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
 
 Ultimately I searched on all channels of the HSL color space for HOG features plus spatially binned color and histograms of color in the feature vector, which provided a nice result.  Here are some example images:
 
